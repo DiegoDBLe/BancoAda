@@ -21,4 +21,9 @@ public class Cliente {
         return "Bem Vindo(a) Sr(a) Nome: " + this.nome.toUpperCase(Locale.ROOT);
     }
 
+    public boolean isEmpty() {
+        if (this.nome.isEmpty())
+            return false;
+        return false;
+    }
 }
