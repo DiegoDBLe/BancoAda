@@ -3,9 +3,6 @@ package br.com.bancoada.banco.modelo;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Objects;
-import java.util.Scanner;
-
 /**
  *
  * @author Diego Dantas
@@ -39,30 +36,40 @@ public abstract class Conta {
 
     public void sacar(double valor) throws SaldoInsuficienteException{
         if(this.saldo < valor){
-            throw new SaldoInsuficienteException("Saldo insuficiente" + "\nSaldo R$: " + this.saldo +
-                    "\nValor R$: " + valor);
+            throw new SaldoInsuficienteException(msgSladoInsuficiente());
+        }else {
+            this.saldo -= valor;
         }
-        this.saldo -= valor;
     }
-
     public void transferir(Conta destino, double valor) throws SaldoInsuficienteException{
         this.sacar(valor);
         destino.depositar(valor);
     }
 
-    public void setNumeroConta(int numeroConta) {
+    public void setNumeroConta(int numeroConta) throws ContaNegativaException {
         if(numeroConta <= 0){
-           System.out.println("Número da Conta não pode ser menor ou igual a 0");
-           return;
+          throw new ContaNegativaException(msgContaNegativaException());
         }
         this.numeroConta = numeroConta;
         }
 
     public void setAgencia(int agencia) {
         if (agencia <= 0){
-            System.out.println("Número da Agência não pode ser menor ou igual a 0");
+            System.out.println("\033[1;31mNúmero da Agência não pode ser menor ou igual a 0\033[m");
             return;
         }
         this.agencia = agencia;
+    }
+
+    public  String msgContaNegativaException(){
+        return "\033[1;31mNúmero da Conta não pode ser menor ou igual a 0\033[m";
+    }
+    public String msgSladoInsuficiente(){
+        return "\033[1;31mSaldo Insuficiente!!\033[m" + "\nSaldo Disponivel R$: " + this.saldo;
+    }
+
+    public String msgSaque(){
+        String  msg = "\033[1;32mSaque Realizado com sucesso!!\033[m" + "\nSaldo Disponivel R$: " + this.saldo;
+        return msg;
     }
 }

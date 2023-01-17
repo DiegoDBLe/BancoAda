@@ -13,8 +13,9 @@ public class ContaCorrente extends Conta implements Impostos{
 
     @Override
     public void sacar(double valor) throws SaldoInsuficienteException{
-        double valorASacar = valor += 0.2;
+        double valorASacar = valor;
         super.sacar(valorASacar);
+        super.saldo -= 0.2;
     }
 
     @Override
