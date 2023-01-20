@@ -10,4 +10,9 @@ public class ContaPoupanca extends Conta{
     public void depositar(double valor) {
         super.saldo += valor;
     }
+    public void dadosDaConta(){
+        System.out.println("Agência: " + super.getAgencia());
+        System.out.println("Conta: " + super.getNumeroConta());
+        System.out.println("Saldo: " + super.getSaldo());
+    }
 }

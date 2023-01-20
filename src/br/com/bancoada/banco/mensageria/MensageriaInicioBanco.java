@@ -1,9 +1,10 @@
 package br.com.bancoada.banco.mensageria;
 
+import br.com.bancoada.banco.modelo.Cliente;
 import lombok.Getter;
 
 @Getter
-public class MensageriaInicioBanco {
+public class MensageriaInicioBanco extends Cliente{
     private static final StringBuilder stringBuilder = new StringBuilder();
     private String msgBaertura;
 
@@ -23,6 +24,14 @@ public class MensageriaInicioBanco {
 
     }
 
+    public void msgOperacaoConta(){
+        System.out.println("\033[4;34;7mQual das opções abaixo deseja realizar: \033[m ");
+        System.out.println("\033[32;m1 - Sacar: \033[m ");
+        System.out.println("\033[32;m2 - Depositar: \033[m ");
+        System.out.println("\033[32;m3 - Transferir: \033[m ");
+        System.out.println("\033[32;m4 - Sair: \033[m ");
+        System.out.print("\033[32;m  : \033[m ");
+    }
     public void msgDeCadastro() throws InterruptedException {
         System.out.println("\033[33mProcessando...\033[m");
         barraCarregamento();
@@ -41,4 +50,38 @@ public class MensageriaInicioBanco {
             System.out.print("\r");
         }
     }
+
+    public void msgSaidaSIstema() throws InterruptedException {
+        System.out.println("\033[33mSaindo...\033[m");
+        Thread.sleep(5000);
+        System.out.println("\033[32m----- Volte Sempre! -----\033[m");
+    }
+
+    public void msgRetornarMenu(){
+        System.out.println("\033[4;34;7mDigite 4 para sair ou qualquer outro número para retornar ao menu:\033[m");
+    }
+
+    public void msgSaque(){
+        System.out.print("Digite o valor que deseja sacar R$ ");
+    }
+
+    public void msgTrasnferencia(){
+        System.out.print("Digite o valor que deseja transferir R$ ");
+    }
+
+    public void msgDeposito(){
+        System.out.print("Digite o valor do Depósito R$ ");
+    }
+
+    public void msgMaisAlgumaOperacao(){
+        System.out.println("\033[4;34;7mDejesa fazer mais alguma operação?\033[m");
+    }
+    public void msgCriacaoContaCorrente(){
+        System.out.println("\033[34;1;mOpcao Selecionada: 1\nCriando Conta Corrente:");
+    }
+
+    public void msgCriacaoContaPoupanca(){
+        System.out.println("\033[34;1;mOpcao Selecionada: 2\nCriando Conta Poupança:");
+    }
+
 }

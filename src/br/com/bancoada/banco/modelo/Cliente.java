@@ -28,10 +28,15 @@ public class Cliente {
         cadastroCliente();
     }
 
+    public Cliente(ContaPoupanca contaPoupanca) {
+        cadastroCliente();
+    }
+
     public void formularioCLiente() {
         System.out.println("Nome: " + nome +
                 "\nCPF: " + cpf +
                 "\nProfissao: " + profissao);
+
     }
 
     public void incluir() {

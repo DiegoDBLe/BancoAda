@@ -70,8 +70,14 @@ public abstract class Conta {
         return "\033[1;31mSaldo Insuficiente!!\033[m" + "\nSaldo Disponivel R$: " + this.saldo;
     }
 
-    public String msgSaque(){
+    public String msgSaqueRealizao(){
         String  msg = "\033[1;32mSaque Realizado com sucesso!!\033[m" + "\nSaldo Disponivel R$: " + this.saldo;
         return msg;
     }
+
+    public String msgDeposito(){
+        String  msg = "\033[1;32mDepósito Realizado com sucesso!!\033[m" + "\nSaldo Disponivel R$: " + this.saldo;
+        return msg;
+    }
+
 }
