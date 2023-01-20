@@ -1,5 +1,7 @@
 package br.com.bancoada.banco.modelo;
 
+import br.com.bancoada.banco.mensageria.ContaNegativaException;
+import br.com.bancoada.banco.mensageria.SaldoInsuficienteException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,7 +21,7 @@ public abstract class Conta {
 
     private int numeroConta;
 
-    private Cliente titular;
+    private String titular;
 
     private static int total = 0;
 
@@ -34,7 +36,7 @@ public abstract class Conta {
 
     public abstract void depositar(double valor);
 
-    public void sacar(double valor) throws SaldoInsuficienteException{
+    public void sacar(double valor) throws SaldoInsuficienteException {
         if(this.saldo < valor){
             throw new SaldoInsuficienteException(msgSladoInsuficiente());
         }else {

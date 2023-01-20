@@ -1,4 +1,4 @@
-package br.com.bancoada.banco.modelo;
+package br.com.bancoada.banco.mensageria;
 
 public class SaldoInsuficienteException extends Exception {
 
