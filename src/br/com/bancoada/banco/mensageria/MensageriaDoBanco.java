@@ -4,7 +4,7 @@ import br.com.bancoada.banco.modelo.Cliente;
 import lombok.Getter;
 
 @Getter
-public class MensageriaInicioBanco extends Cliente{
+public class MensageriaDoBanco extends Cliente{
     private static final StringBuilder stringBuilder = new StringBuilder();
     private String msgBaertura;
 
@@ -15,7 +15,7 @@ public class MensageriaInicioBanco extends Cliente{
 
     public void msgSelecioneUmaOpcao(){
 
-        System.out.println("\033[4;34;1mDigite uma opção desejada:\033[m ");
+        System.out.println("\033[4;34;1mDigite uma opção:\033[m ");
         System.out.println("\033[32;m1 - Abrir uma Conta Corrente: \033[m ");
         System.out.println("\033[32;m2 - Abrir uma Conta Poupança: \033[m ");
         System.out.println("\033[32;m3 - Acessar Conta: \033[m ");
@@ -53,7 +53,8 @@ public class MensageriaInicioBanco extends Cliente{
 
     public void msgSaidaSIstema() throws InterruptedException {
         System.out.println("\033[33mSaindo...\033[m");
-        Thread.sleep(5000);
+        Thread.sleep(3000);
+        System.out.println("\033[32m----- Obrigado por usar o Banco Ada! -----\033[m");
         System.out.println("\033[32m----- Volte Sempre! -----\033[m");
     }
 
@@ -77,7 +78,7 @@ public class MensageriaInicioBanco extends Cliente{
         System.out.println("\033[4;34;7mDejesa fazer mais alguma operação?\033[m");
     }
     public void msgCriacaoContaCorrente(){
-        System.out.println("\033[34;1;mOpcao Selecionada: 1\nCriando Conta Corrente:");
+        System.out.println("\033[1;34;mOpcao Selecionada: 1\nCriando Conta Corrente:");
     }
 
     public void msgCriacaoContaPoupanca(){

@@ -1,8 +1,8 @@
 package br.com.bancoada.banco.mensageria;
 
-public class SaldoInsuficienteException extends Exception {
+public class ExceptionSaldoInsuficiente extends Exception {
 
-    public SaldoInsuficienteException(String message) {
+    public ExceptionSaldoInsuficiente(String message) {
         super(message);
     }
 

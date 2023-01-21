@@ -1,6 +1,6 @@
 package br.com.bancoada.banco.modelo;
 
-import br.com.bancoada.banco.mensageria.SaldoInsuficienteException;
+import br.com.bancoada.banco.mensageria.ExceptionSaldoInsuficiente;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,7 +28,7 @@ public class ContaCorrente extends Conta implements Impostos{
     }
 
     @Override
-    public void sacar(double valor) throws SaldoInsuficienteException {
+    public void sacar(double valor) throws ExceptionSaldoInsuficiente {
         double valorASacar = valor;
         super.sacar(valorASacar);
         super.saldo -= 0.2;
